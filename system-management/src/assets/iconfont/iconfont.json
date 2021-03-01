@@ -1,0 +1,310 @@
+{
+  "id": "2125694",
+  "name": "环科院门禁",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "56952",
+      "name": "人造板_b",
+      "font_class": "renzaobanb",
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    },
+    {
+      "icon_id": "552735",
+      "name": "玻璃行业",
+      "font_class": "bolixingye",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "552776",
+      "name": "陶瓷行业",
+      "font_class": "taocixingye",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "724440",
+      "name": "鞋子",
+      "font_class": "xiezi",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "850628",
+      "name": "重金属",
+      "font_class": "zhongjinshu",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "949901",
+      "name": "建筑",
+      "font_class": "jianzhu",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
+      "icon_id": "1893989",
+      "name": "总碳排放量",
+      "font_class": "zongtanpaifangliang",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "2121569",
+      "name": "农药",
+      "font_class": "nongyao",
+      "unicode": "e69f",
+      "unicode_decimal": 59039
+    },
+    {
+      "icon_id": "2452072",
+      "name": "铁盒",
+      "font_class": "tiehe",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "2774427",
+      "name": "家具",
+      "font_class": "jiaju",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "2775412",
+      "name": "水泥",
+      "font_class": "shuini",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "2833486",
+      "name": "纤维",
+      "font_class": "yezi",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "4764481",
+      "name": "碳减排",
+      "font_class": "tanjianpai",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "6424757",
+      "name": "焦化",
+      "font_class": "jiaohua",
+      "unicode": "e660",
+      "unicode_decimal": 58976
+    },
+    {
+      "icon_id": "6424762",
+      "name": "玻璃",
+      "font_class": "boli",
+      "unicode": "e661",
+      "unicode_decimal": 58977
+    },
+    {
+      "icon_id": "6432050",
+      "name": "砖瓦",
+      "font_class": "zhuanwa",
+      "unicode": "e662",
+      "unicode_decimal": 58978
+    },
+    {
+      "icon_id": "6923620",
+      "name": "机械",
+      "font_class": "jixie",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "7230069",
+      "name": "制造",
+      "font_class": "zhizao",
+      "unicode": "eb7e",
+      "unicode_decimal": 60286
+    },
+    {
+      "icon_id": "7233011",
+      "name": "海洋可再生能源利用业",
+      "font_class": "haiyangkezaishengnengyuanliyongye",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "7353003",
+      "name": "石油",
+      "font_class": "shiyou",
+      "unicode": "e678",
+      "unicode_decimal": 59000
+    },
+    {
+      "icon_id": "8990515",
+      "name": "包装",
+      "font_class": "baozhuang",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "8991128",
+      "name": "icon3_金属冶炼点",
+      "font_class": "icon_jinshuyeliandian",
+      "unicode": "e6bd",
+      "unicode_decimal": 59069
+    },
+    {
+      "icon_id": "9016474",
+      "name": "塑料",
+      "font_class": "suliao",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "9051924",
+      "name": "类型",
+      "font_class": "leixing-",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "9052609",
+      "name": "涂料喷涂",
+      "font_class": "tuliaopentu",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "9113769",
+      "name": "钢铁",
+      "font_class": "gangtie",
+      "unicode": "ecf1",
+      "unicode_decimal": 60657
+    },
+    {
+      "icon_id": "9971842",
+      "name": "火",
+      "font_class": "huo",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "10232092",
+      "name": "煤",
+      "font_class": "mei",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "10401418",
+      "name": "合金模型",
+      "font_class": "hejinmoxing",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "10827740",
+      "name": "电解电容",
+      "font_class": "dianjiedianrong",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "10941841",
+      "name": "制药",
+      "font_class": "zhiyao",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "11934618",
+      "name": "建筑",
+      "font_class": "jianzhu1",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "12323895",
+      "name": "冶金铸造",
+      "font_class": "yejinzhuzao",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "12908069",
+      "name": "工业",
+      "font_class": "gongye",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "13179010",
+      "name": "建筑",
+      "font_class": "jianzhu2",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "13338165",
+      "name": "冶炼-D",
+      "font_class": "yelian-D",
+      "unicode": "e679",
+      "unicode_decimal": 59001
+    },
+    {
+      "icon_id": "13774512",
+      "name": "汽车",
+      "font_class": "che",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "14276429",
+      "name": "养护窑",
+      "font_class": "yanghuyao",
+      "unicode": "e6b1",
+      "unicode_decimal": 59057
+    },
+    {
+      "icon_id": "14324037",
+      "name": "氧化",
+      "font_class": "yanghua",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "14668620",
+      "name": "环保 (3)",
+      "font_class": "huanbao3",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "16157560",
+      "name": "矿",
+      "font_class": "zhihuikuangshan",
+      "unicode": "e85f",
+      "unicode_decimal": 59487
+    },
+    {
+      "icon_id": "16800561",
+      "name": "标石-灰",
+      "font_class": "biaoshi-hui",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "16810996",
+      "name": "废橡胶",
+      "font_class": "feixiangjiao",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    }
+  ]
+}
