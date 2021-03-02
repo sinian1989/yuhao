@@ -2,9 +2,11 @@
 	<el-row class="container">
 		<!--头部-->
 		<el-col :span="24" class="topbar-wrap">
-			
+			<!--<div class="topbar-logo topbar-btn">-->
+				<!--<a href="/"><img src="" style="padding-left:8px;" /></a>-->
+			<!--</div>-->
 			<div class="topbar-logos">
-				<a href="/" style="color: #F9F9F9; font-size: 22px; padding-left: 20px;"><span v-show="!$store.state.collapsed">系统管理</span></a>
+				<a href="/" style="color: #fff;"><span v-show="!$store.state.collapsed">重点行业企业门禁监管系统</span></a>
 			</div>
 			<div class="topbar-account topbar-btn">
 				<el-dropdown trigger="click">
@@ -20,36 +22,38 @@
 			</div>
 			<div class="topbar-title">
 				<!-- 注意：这里就是topNavState作用之处，根据当前路由所在根路由的type值判断显示不同顶部导航菜单 -->
-				<el-row v-show="$store.state.topNavState === 'home'">
+				<!--<el-row v-show="$store.state.topNavState === 'home'">-->
+				<el-row>
 					<el-col :span="24">
 						<el-menu :default-active="defaultActiveIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" :router="true">
-							<!-- <el-menu-item index="/">组织管理</el-menu-item>
-							<el-menu-item index="/role">角色管理</el-menu-item>
-							<el-menu-item index="/resource">资源管理</el-menu-item> -->
-							<el-menu-item v-for="(item,index) in menuList" :key="index" :index="item.path">{{item.topNmae}}</el-menu-item>
-							
+							<el-menu-item index="/">总览</el-menu-item>
+							<el-menu-item index="/enterpriseManager">重点企业监管</el-menu-item>
+							<el-menu-item index="/vehicleManager">过车详细数据</el-menu-item>
+							<el-menu-item index="/deptManager">超标车辆管理</el-menu-item>
+							<el-menu-item index="/deptManager">统计分析</el-menu-item>
+							<el-menu-item index="/deptManager">预警控制</el-menu-item>
 						</el-menu>
 					</el-col>
 				</el-row>
-				<el-row v-show="$store.state.topNavState === 'enterprise'">
-					<el-col :span="24">
-						<el-menu :default-active="defaultActiveIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" :router="true">
-							<!-- <el-menu-item index="/">组织管理</el-menu-item>
-							<el-menu-item index="/role">角色管理</el-menu-item>
-							<el-menu-item index="/resource">资源管理</el-menu-item> -->
-							<el-menu-item v-for="(item,index) in menuList" :key="index" :index="item.path">{{item.topNmae}}</el-menu-item>
-						</el-menu>
-					</el-col>
-				</el-row>
+				<!--<el-row v-show="$store.state.topNavState === 'enterprise'">-->
+					<!--<el-col :span="24">-->
+						<!--<el-menu :default-active="defaultActiveIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" :router="true">-->
+							<!--<el-menu-item index="/">工作台</el-menu-item>-->
+							<!--<el-menu-item index="/enterpriseManager">企业信息</el-menu-item>-->
+							<!--<el-menu-item index="/vehicleManager">车辆信息</el-menu-item>-->
+							<!--<el-menu-item index="/deptManager">组织架构</el-menu-item>-->
+						<!--</el-menu>-->
+					<!--</el-col>-->
+				<!--</el-row>-->
 			</div>
-			
+
 		</el-col>
 	</el-row>
 </template>
 <script>
 import 'element-ui/lib/theme-chalk/display.css';
 import {road} from '../../../views/road.js'
-import { mapGetters } from 'vuex'
+
 export default {
   data(){
     return {
@@ -58,18 +62,14 @@ export default {
       nickname: '',
       defaultActiveIndex: '/',
       homeMenu: false,
-      messageCount: 5,
+      messageCount: 5
     }
   },
-	
   created() {
 		this.$nextTick(function(){
 			this.nickname = sessionStorage.getItem('username')
 		});
-		this.$nextTick(function(){
-			this.defaultActiveIndex = sessionStorage.getItem('index');
-			this.defaultActiveIndex1 = sessionStorage.getItem('index');
-		})
+	
     road.$on('goto', (url) => {
       if(url === "/login") {
         sessionStorage.removeItem('Token');
@@ -85,15 +85,7 @@ export default {
       this.$router.push(url); //用go刷新
     },
     handleSelect(index){
-			this.$nextTick(function(){
-				sessionStorage.setItem('index',index)
-				this.defaultActiveIndex = sessionStorage.getItem('index');
-				this.defaultActiveIndex1 = sessionStorage.getItem('index');
-			})
-			console.log(index)
-			
-      
-			
+      this.defaultActiveIndex = index;
     },
     fetchNavData () { // 初始化菜单激活项
       let cur_path = this.$route.path; //获取当前路由
@@ -124,7 +116,6 @@ export default {
       }
       this.$store.state.topNavState = nav_type;
       this.$store.state.leftNavState = nav_name;
-			
       if(nav_type == "home"){
         this.defaultActiveIndex = "/";
       } else {
@@ -143,7 +134,7 @@ export default {
     }
   },
   mounted() {
-		console.log(this.menuList)
+		
     // let user = window.sessionStorage.getItem('Token');
     // if (user) {
     //   user = JSON.parse(user);
@@ -151,9 +142,6 @@ export default {
     //   this.companyName = user.companyName || '';
     // }
   },
-	computed:{
-		...mapGetters(['user','menuList']),
-	},
   watch: {
     '$route': function(to, from){ // 路由改变时执行
       //console.info("to.path:" + to.path);
@@ -162,9 +150,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-	.topbar-title{
-		float: right !important;
-		margin-right: 30px;
-	}
-</style>

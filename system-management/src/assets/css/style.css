@@ -71,9 +71,10 @@ ul {
 
 .container .topbar-wrap .topbar-logos {
   float: left;
-  width: 128px;
+  /*width: 128px;*/
   line-height: 48px;
-  font-size: 14px;
+  font-size: 20px;
+  margin-left: 20px;
 }
 
 .container .topbar-wrap .topbar-logo img, .container .topbar-wrap .topbar-logos img {
@@ -83,9 +84,10 @@ ul {
 }
 
 .container .topbar-wrap .topbar-title {
-  float: left;
+  float: right;
   text-align: left;
   padding-left: 10px;
+  margin-right: 50px;
   
 }
 

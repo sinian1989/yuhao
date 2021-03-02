@@ -185,11 +185,12 @@ export default {
 			});
 		},
 		login() {
-			// this.$store.commit('user/SET_NAME', this.loginForm.username);
-			// sessionStorage.setItem('username', this.loginForm.username);
-			// sessionStorage.setItem('Token','1')
-			// setToken('Token', '1');
-			// this.$router.push({ path: '/' });
+			this.$store.commit('user/SET_NAME', this.loginForm.username);
+			sessionStorage.setItem('username', this.loginForm.username);
+			sessionStorage.setItem('Token','1')
+			setToken('Token', '1');
+			this.$router.push({ path: '/' });
+			return
 			let userinfo = qs.stringify({
 				username: this.loginForm.username,
 				password: this.loginForm.password
@@ -201,7 +202,6 @@ export default {
 					this.$store.commit('user/SET_NAME', this.loginForm.username);
 					sessionStorage.setItem('username', this.loginForm.username);
 					sessionStorage.setItem('Token',res.data.access_token)
-					sessionStorage.setItem('index','/')
 					setToken('Token', res.data.access_token);
 					this.$router.push({ path: '/' });
 
@@ -260,7 +260,6 @@ export default {
 		width: 360px;
 		margin: auto;
 		margin-top: 20px;
-		float: initial;
 	}
 	input:-webkit-autofill,
 	textarea:-webkit-autofill,
