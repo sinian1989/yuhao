@@ -9,6 +9,9 @@ import Home from '@/layout/components/home.vue'
 import Home1 from '@/layout/components/home1.vue'
 import Dashboard from '@/views/workbench/dashboard.vue'
 import map from '@/views/enterprise/map.vue'
+import routevueFilesManage from '@/views/enterprise/routevue.vue'
+import routevueFilesManage1 from '@/views/enterprise/routervue1.vue'
+import videoSurveillance from '@/views/enterprise/videoSurveillance.vue'
 
 
 
@@ -31,6 +34,8 @@ const Login = resolve => require(['@/views/login'], resolve)
 Vue.use(Router)
 
 let router = new Router({
+    // linkExactActiveClass: 'active',
+    linkActiveClass: 'active',
     routes: [{
         path: '/login',
         type: 'login',
@@ -81,90 +86,289 @@ let router = new Router({
                         aside: LeftNav
                     },
                     leaf: true,
-                    iconCls: 'el-icon-setting',
+                    iconCls: 'el-icon-office-building',
                     menuShow: true,
                 },
-        		{
-        			path: '/mySet1',
-        			components: {
-        				default: MySettings,
-        				top: TopNav,
-        				aside: LeftNav
-        			},
-        			name: '我的设置',
-        			iconCls: 'el-icon-menu',
-        			menuShow: true,
-        			children: [
-        				{
-        					path: '/mySet1/plan',
-        					component: () => import('@/views/vehicle/1'),
-        					name: '行程计划',
-        					menuShow: true,
-        				},
-        				{
-        					path: '/mySet1/mission',
-        					component: () => import('@/views/vehicle/2'),
-        					name: '我的任务',
-        					menuShow: true
-        				},
-        				{
-        					path: '/mySet1/maillist',
-        					component: () => import('@/views/vehicle/3'),
-        					name: '通讯录',
-        					menuShow: true
-        				}
-        			]
-        		},
-        		{
-        			path: '/enterprise/list',
-        			name: '企业信息',
-        			components: {
-        				default: EnterpriseList,
-        				top: TopNav,
-        				aside: LeftNav
-        			},
-        			leaf: true,
-        			iconCls: 'el-icon-setting',
-        			menuShow: true,
-        		},
-        		{
-        			path: '/enterprise/detail',
-        			name: '企业详情',
-        			components: {
-        				default: EnterpriseDetail,
-        				top: TopNav,
-        				aside: LeftNav
-        			},
-        			leaf: true,
-        			iconCls: 'el-icon-setting',
-        			menuShow: true
-        		},
-        		{
-        			path: '/enterprise/add',
-        			name: '添加企业',
-        			components: {
-        				default: EnterpriseAdd,
-        				top: TopNav,
-        				aside: LeftNav
-        			},
-        			leaf: true,
-        			iconCls: 'el-icon-menu',
-        			menuShow: true
-        		},
-        		{
-        			path: '/enterprise/validate',
-        			name: '企业认证',
-        			components: {
-        				default: EnterpriseValidate,
-        				top: TopNav,
-        				aside: LeftNav
-        			},
-        			leaf: true,
-        			iconCls: 'el-icon-menu',
-        			menuShow: true
-        		}
+
+                {
+                    path: '/enterpriseFilesManage',
+                    name: '企业档案管理',
+                    components: {
+                        default: routevueFilesManage,
+                        top: TopNav,
+                        aside: LeftNav
+                    },
+                    iconCls: 'el-icon-folder-opened',
+                    menuShow: true,
+                    children: [
+
+                        // {
+                        //     path: '/enterpriseFilesManage/files',
+                        //     components: {
+                        //         default: routevueFilesManage,
+                        //         top: TopNav,
+                        //         aside: LeftNav
+                        //     },
+                        //     name: '企业档案',
+                        //     menuShow: true,
+                        //     redirect: '/enterpriseFilesManage/files/da',
+                        //     children:[
+                        //         {
+                        //             path: '/enterpriseFilesManage/files/da',
+                        //             component: () => import('@/views/enterprise/qiyedanganList'),
+                        //             name: '企业档案',
+                        //             menuShow: false,
+                        //         },
+                        //         {
+                        //             path: '/enterpriseFilesManage/files/detail',
+                        //             component: () => import('@/views/enterprise/qiyedangan'),
+                        //             name: '企业档案详情',
+                        //             menuShow: false,
+                        //         },
+                        //     ]
+                        // },
+
+
+                        {
+                            path: '/enterpriseFilesManage/files',
+                            component: () => import('@/views/enterprise/qiyedanganList'),
+                            name: '企业档案',
+                            menuShow: true,
+                        },
+                        {
+                            path: '/enterpriseFilesManage/files/detail',
+                            component: () => import('@/views/enterprise/qiyedangan'),
+                            name: '企业档案详情',
+                            menuShow: false,
+                        },
+
+                        {
+                            path: '/enterpriseFilesManage/enterpriseData',
+                            component: () => import('@/views/enterprise/qiyexinxishenhe'),
+                            name: '企业信息审核',
+                            menuShow: true
+                        },
+                        {
+                            path: '/enterpriseFilesManage/gatesentry',
+                            component: () => import('@/views/enterprise/mengangxinxishenhe'),
+                            name: '门岗信息审核',
+                            menuShow: true
+                        },
+                        {
+                            path: '/enterpriseFilesManage/carAuditing',
+                            component: () => import('@/views/enterprise/carAuditing'),
+                            name: '车辆电子审核',
+                            menuShow: true
+                        },
+                    ]
+                },
+                {
+                    path: '/alarmInformationManagement',
+                    name: '报警信息管理',
+                    components: {
+                        default: routevueFilesManage,
+                        top: TopNav,
+                        aside: LeftNav
+                    },
+                    iconCls: 'el-icon-message-solid',
+                    menuShow: true,
+                    children: [
+                        {
+                            path: '/alarmInformationManagement/realTimeFlowMonitoringAlarm',
+                            component: () => import('@/views/enterprise/realTimeFlowMonitoringAlarm'),
+                            name: '实时流量监控报警',
+                            menuShow: true,
+                        },
+                        {
+                            path: '/alarmInformationManagement/emissionStageMonitoringAlarm',
+                            component: () => import('@/views/enterprise/emissionStageMonitoringAlarm'),
+                            name: '排放阶段监控报警',
+                            menuShow: true
+                        },
+                        {
+                            path: '/alarmInformationManagement/overStandardVehicleAlarm',
+                            component: () => import('@/views/enterprise/overStandardVehicleAlarm'),
+                            name: '超标车辆报警',
+                            menuShow: true
+                        },
+                        {
+                            path: '/alarmInformationManagement/equipmentAlarm',
+                            component: () => import('@/views/enterprise/equipmentAlarm'),
+                            name: '设备报警',
+                            menuShow: true
+                        },
+                    ]
+                },
+                {
+                    path: '/enterprise/videoSurveillance',
+                    name: '视频监控',
+                    components: {
+                        default: videoSurveillance,
+                        top: TopNav,
+                        aside: LeftNav
+                    },
+                    leaf: true,
+                    iconCls: 'el-icon-video-camera-solid',
+                    menuShow: true,
+                },
+
+
+                // {
+                //     path: '/mySet1',
+                //     components: {
+                //         default: MySettings,
+                //         top: TopNav,
+                //         aside: LeftNav
+                //     },
+                //     name: '我的设置',
+                //     iconCls: 'el-icon-menu',
+                //     menuShow: true,
+                //     children: [
+                //         {
+                //             path: '/mySet1/plan',
+                //             component: () => import('@/views/vehicle/1'),
+                //             name: '行程计划',
+                //             menuShow: true,
+                //         },
+                //         {
+                //             path: '/mySet1/mission',
+                //             component: () => import('@/views/vehicle/2'),
+                //             name: '我的任务',
+                //             menuShow: true
+                //         },
+                //         {
+                //             path: '/mySet1/maillist',
+                //             component: () => import('@/views/vehicle/3'),
+                //             name: '通讯录',
+                //             menuShow: true
+                //         }
+                //     ]
+                // },
         	]
         },
+
+
+        // {
+        // 	path: '/filesManage',
+        // 	type: 'filesManage',
+        // 	name: 'filesManage',
+        // 	component: Home,
+        // 	redirect: '/filesManage/enterpriseFiles',
+        // 	menuShow: true,
+        // 	children: [
+        //         {
+        //             path: '/filesManage/enterpriseFiles',
+        //             name: '企业档案管理',
+        //             components: {
+        //                 default: map,
+        //                 top: TopNav,
+        //                 aside: LeftNav
+        //             },
+        //             leaf: true,
+        //             iconCls: 'el-icon-setting',
+        //             menuShow: true,
+        //             children: [
+        //                 {
+        //                     path: '/mySet1/plan',
+        //                     component: () => import('@/views/vehicle/1'),
+        //                     name: '行程计划',
+        //                     menuShow: true,
+        //                 },
+        //                 {
+        //                     path: '/mySet1/mission',
+        //                     component: () => import('@/views/vehicle/2'),
+        //                     name: '我的任务',
+        //                     menuShow: true
+        //                 },
+        //                 {
+        //                     path: '/mySet1/maillist',
+        //                     component: () => import('@/views/vehicle/3'),
+        //                     name: '通讯录',
+        //                     menuShow: true
+        //                 }
+        //             ]
+        //         },
+        // 		{
+        // 			path: '/mySet1',
+        // 			components: {
+        // 				default: MySettings,
+        // 				top: TopNav,
+        // 				aside: LeftNav
+        // 			},
+        // 			name: '我的设置',
+        // 			iconCls: 'el-icon-menu',
+        // 			menuShow: true,
+        // 			children: [
+        // 				{
+        // 					path: '/mySet1/plan',
+        // 					component: () => import('@/views/vehicle/1'),
+        // 					name: '行程计划',
+        // 					menuShow: true,
+        // 				},
+        // 				{
+        // 					path: '/mySet1/mission',
+        // 					component: () => import('@/views/vehicle/2'),
+        // 					name: '我的任务',
+        // 					menuShow: true
+        // 				},
+        // 				{
+        // 					path: '/mySet1/maillist',
+        // 					component: () => import('@/views/vehicle/3'),
+        // 					name: '通讯录',
+        // 					menuShow: true
+        // 				}
+        // 			]
+        // 		},
+        // 		{
+        // 			path: '/enterprise/list',
+        // 			name: '企业信息',
+        // 			components: {
+        // 				default: EnterpriseList,
+        // 				top: TopNav,
+        // 				aside: LeftNav
+        // 			},
+        // 			leaf: true,
+        // 			iconCls: 'el-icon-setting',
+        // 			menuShow: true,
+        // 		},
+        // 		{
+        // 			path: '/enterprise/detail',
+        // 			name: '企业详情',
+        // 			components: {
+        // 				default: EnterpriseDetail,
+        // 				top: TopNav,
+        // 				aside: LeftNav
+        // 			},
+        // 			leaf: true,
+        // 			iconCls: 'el-icon-setting',
+        // 			menuShow: true
+        // 		},
+        // 		{
+        // 			path: '/enterprise/add',
+        // 			name: '添加企业',
+        // 			components: {
+        // 				default: EnterpriseAdd,
+        // 				top: TopNav,
+        // 				aside: LeftNav
+        // 			},
+        // 			leaf: true,
+        // 			iconCls: 'el-icon-menu',
+        // 			menuShow: true
+        // 		},
+        // 		{
+        // 			path: '/enterprise/validate',
+        // 			name: '企业认证',
+        // 			components: {
+        // 				default: EnterpriseValidate,
+        // 				top: TopNav,
+        // 				aside: LeftNav
+        // 			},
+        // 			leaf: true,
+        // 			iconCls: 'el-icon-menu',
+        // 			menuShow: true
+        // 		}
+        // 	]
+        // },
 
 
         // {

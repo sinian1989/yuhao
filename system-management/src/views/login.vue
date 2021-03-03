@@ -190,7 +190,7 @@ export default {
 			sessionStorage.setItem('Token','1')
 			setToken('Token', '1');
 			this.$router.push({ path: '/' });
-			return
+			// return
 			let userinfo = qs.stringify({
 				username: this.loginForm.username,
 				password: this.loginForm.password

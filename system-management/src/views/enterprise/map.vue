@@ -11,12 +11,12 @@
             </el-select>
             <el-input v-model="input" placeholder="请输入行业类型"></el-input>
         </div>
-        <el-button type="primary" icon="el-icon-edit">地图</el-button>
+        <!--<el-button type="primary" icon="el-icon-edit">地图</el-button>-->
     </div>
 </template>
 <script>
     export default {
-        name: 'map',
+        name: 'mapdata',
         data() {
             return {
                 optionsCity: [{

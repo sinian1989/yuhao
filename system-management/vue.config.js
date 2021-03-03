@@ -4,6 +4,7 @@ const IS_PROD = ['production', 'prod'].includes(process.env.NODE_ENV);
 const resolve = (dir) => path.join(__dirname, dir);
 const env = process.env.NODE_ENV
 let target = process.env.VUE_APP_URL  // development和production环境是不同的
+console.log(target)
 
 module.exports = {
    publicPath: './',  // 公共路径
