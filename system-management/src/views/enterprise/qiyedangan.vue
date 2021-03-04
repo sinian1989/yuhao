@@ -299,28 +299,173 @@
                 </el-pagination>
             </el-tab-pane>
             <el-tab-pane label="实时流量监控" name="4">
-                <p style="margin: 20px 0;">进车流量限值：<span style="color: #EB7F65;font-size: 20px;">XXX</span></p>
+                <div style="margin:20px 0 40px;">
+                    进车流量限值：<span style="color: #EB7F65;font-size: 20px;">XXX</span>
+                    <div style="float: right;">
+                        <el-date-picker
+                                style="margin-right: 20px;"
+                                v-model="value1"
+                                type="datetime"
+                                placeholder="选择日期时间">
+                        </el-date-picker>
+                        <el-button type="primary">搜索</el-button>
+                    </div>
+
+                </div>
                 <div class="model4_mid_div">
                     <div class="model4_mid_div_lf">
                         <span>近30天实时流量变化趋势</span>
-                        <el-button type="primary">查看过车数据</el-button>
+                        <el-button type="primary" style="margin-left: 20px">查看过车数据</el-button>
                     </div>
                     <div class="model4_mid_div_rgt">
-
+                        <div class="model4_mid_div_rgt_top">
+                            <div class="label"></div>
+                            <el-checkbox-group v-model="checkList" class="model4_mid_div_rgt_top_check">
+                                <el-checkbox label="总车流量"></el-checkbox>
+                                <el-checkbox label="国三及以下"></el-checkbox>
+                                <el-checkbox label="国IV"></el-checkbox>
+                                <el-checkbox label="国V"></el-checkbox>
+                                <el-checkbox label="国VI及以上"></el-checkbox>
+                            </el-checkbox-group>
+                        </div>
+                        <div class="model4_mid_div_rgt_btm">
+                            <div class="label"></div>
+                            <el-checkbox-group v-model="checkList" class="model4_mid_div_rgt_btm_check">
+                                <el-checkbox label="总车流量"></el-checkbox>
+                                <el-checkbox label="国三及以下"></el-checkbox>
+                                <el-checkbox label="国IV"></el-checkbox>
+                                <el-checkbox label="国V"></el-checkbox>
+                                <el-checkbox label="国VI及以上"></el-checkbox>
+                            </el-checkbox-group>
+                        </div>
                     </div>
                 </div>
+
+                <div class="model4_echart">
+                    <div id="model4" style="width: 100%;height: 500px;margin-top: 40px;"></div>
+                </div>
+
             </el-tab-pane>
-            <el-tab-pane label="视频监控" name="5">视频监控</el-tab-pane>
-            <el-tab-pane label="报警信息" name="6">报警信息</el-tab-pane>
+
+
+            <el-tab-pane label="视频监控" name="5">
+
+                <div style="margin-top: 30px;margin-bottom: 20px;">
+                    <span>选择日期：</span>
+                    <el-date-picker
+                            v-model="value1"
+                            type="datetime"
+                            placeholder="选择日期时间">
+                    </el-date-picker>
+                    <span style="margin: 0 10px;">---</span>
+                    <el-date-picker
+                            v-model="value1"
+                            type="datetime"
+                            placeholder="选择日期时间">
+                    </el-date-picker>
+                    <el-button type="primary" style="margin-left:40px">搜索</el-button>
+
+                </div>
+                <div class="model5_div">
+                    <h2>视频信息</h2>
+                    <div class="model5_div_video_list">
+                        <div class="model5_div_video_list_item">
+                            <video src=""></video>
+                            <p>
+                                <span class="name">视频1</span>
+                                <span class="date">2021.02.03</span>
+                            </p>
+                        </div>
+                        <div class="model5_div_video_list_item">
+                            <video src=""></video>
+                            <p>
+                                <span class="name">视频1</span>
+                                <span class="date">2021.02.03</span>
+                            </p>
+                        </div>
+                        <div class="model5_div_video_list_item">
+                            <video src=""></video>
+                            <p>
+                                <span class="name">视频1</span>
+                                <span class="date">2021.02.03</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </el-tab-pane>
+
+
+
+            <el-tab-pane label="报警信息" name="6">
+                <div style="margin-top: 30px;margin-bottom: 20px;">
+                    <span>报警类型：</span>
+                    <el-select v-model="value" placeholder="请选择">
+                        <el-option
+                                v-for="item in options"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                        </el-option>
+                    </el-select>
+                    <span style="margin-left: 20px;">选择日期：</span>
+                    <el-date-picker
+                            v-model="value1"
+                            type="datetime"
+                            placeholder="选择日期时间">
+                    </el-date-picker>
+                    <span style="margin: 0 10px;">---</span>
+                    <el-date-picker
+                            v-model="value1"
+                            type="datetime"
+                            placeholder="选择日期时间">
+                    </el-date-picker>
+                    <el-button type="primary" style="margin-left:40px">搜索</el-button>
+
+                    <div class="model6_table">
+                        <el-table
+                                :data="tableData"
+                                border
+                                style="width: 100%">
+                            <el-table-column
+                                    prop="date"
+                                    label="日期"
+                                    width="180">
+                            </el-table-column>
+                            <el-table-column
+                                    prop="name"
+                                    label="姓名"
+                                    width="180">
+                            </el-table-column>
+                            <el-table-column
+                                    prop="address"
+                                    label="地址">
+                            </el-table-column>
+                        </el-table>
+                        <el-pagination
+                                v-show="totalCount>0"
+                                @size-change="handleSizeChange"
+                                @current-change="handleCurrentChange"
+                                :current-page="pageIndex"
+                                :page-sizes="[10,30,50,100]"
+                                :page-size="pageSize"
+                                layout="total, sizes, prev, pager, next, jumper"
+                                :total="totalCount">
+                        </el-pagination>
+                    </div>
+
+                </div>
+            </el-tab-pane>
         </el-tabs>
     </div>
 
 </template>
 <script>
+    import echarts from 'echarts'
     export default {
         data() {
             return {
-                activeName: '4',
+                activeName: '6',
                 tableData: [{
                     date: '2016-05-02',
                     name: '王小虎',
@@ -360,9 +505,74 @@
                 }],
                 value: '',
                 input: '',
+                checkList: ['总车流量']
             };
         },
+        created(){
+
+        },
+        mounted(){
+            this.model4()
+        },
         methods: {
+            model4(){
+                var chartDom = document.getElementById('model4');
+                var myChart = echarts.init(chartDom);
+                var option;
+
+                option = {
+                    // title: {
+                    //     text: '折线图堆叠'
+                    // },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['行业1', '行业2', '行业3']
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: ['1', '3', '5', '7', '9','11', '13']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            name: '行业1',
+                            type: 'line',
+                            stack: '总量',
+                            data: [120, 132, 101, 134, 90, 230, 210]
+                        },
+                        {
+                            name: '行业2',
+                            type: 'line',
+                            stack: '总量',
+                            data: [220, 182, 191, 234, 290, 330, 310]
+                        },
+                        {
+                            name: '行业3',
+                            type: 'line',
+                            stack: '总量',
+                            data: [150, 232, 201, 154, 190, 330, 410]
+                        },
+                    ]
+                };
+
+                option && myChart.setOption(option);
+            },
             handleClick(tab, event) {
                 console.log(tab, event);
             },
@@ -425,5 +635,86 @@
     }
     .model4_mid_div{
         background: #F2F2F2;
+        padding: 20px;
+        height: 108px;
+        overflow: hidden;
+        .model4_mid_div_lf{
+            float: left;
+            margin-top: 15px;
+        }
+        .model4_mid_div_rgt{
+            float: right;
+            .model4_mid_div_rgt_top{
+                overflow: hidden;
+                margin-bottom: 20px;
+                margin-top: 5px;
+                .label{
+                    width: 47px;
+                    height: 21px;
+                    opacity: 1;
+                    border: 2px solid #d8d8d8;
+                    float: left;
+                    margin-right: 20px;
+                }
+                .model4_mid_div_rgt_top_check{
+                    float: left;
+                    margin-top: 3px;
+                }
+            }
+            .model4_mid_div_rgt_btm{
+                overflow: hidden;
+                .label{
+                    width: 47px;
+                    height: 21px;
+                    opacity: 1;
+                    border: 2px dashed #d8d8d8;
+                    float: left;
+                    margin-right: 20px;
+                }
+                .model4_mid_div_rgt_btm_check{
+                    float: left;
+                    margin-top: 3px;
+                }
+            }
+        }
+    }
+    .model5_div{
+        margin: 30px 0;
+        h2{
+            margin-bottom: 20px;
+        }
+        .model5_div_video_list{
+            overflow: hidden;
+            .model5_div_video_list_item{
+                float: left;
+                width: 400px;
+                background: #ffffff;
+                border: 1px solid #eaebf0;
+                border-radius: 9px;
+                box-shadow: 0px 4px 8px 0px #eeeeee;
+                margin-right: 20px;
+                video{
+                    width: 400px;
+                    height: 250px;
+                    opacity: 1;
+                    background: rgba(0,0,0,0.00);
+                }
+                p{
+                    height: 60px;
+                    line-height: 60px;
+                    overflow: hidden;
+                    .name{
+                        float: left;
+                        margin-left: 20px;
+                    }
+                    .date{
+                        float: right;margin-right: 20px;
+                    }
+                }
+            }
+        }
+    }
+    .model6_table{
+        margin-top: 40px;
     }
 </style>
